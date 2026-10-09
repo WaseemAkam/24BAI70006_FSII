@@ -1,24 +1,19 @@
-import { useState } from "react";
-import "./App.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import {Routes, Route } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0);
+import home from "./components/Home.jsx";
+import contact from "./components/Contact.jsx";
 
-  return (
-    <div className="container">
-      <h1>Counter App</h1>
+import "./index.css";
 
-      <h2>{count}</h2>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <div>
+    <Routes>
+      <Route path="/" element={<home />}></Route>
+      <Route path="/contact" element={<contact />}></Route>
 
-      <div className="buttons">
-        <button onClick={() => setCount(count + 1)}>Increment</button>
-
-        <button onClick={() => setCount(count - 1)}>Decrement</button>
-
-        <button onClick={() => setCount(0)}>Reset</button>
-      </div>
-    </div>
-  );
-}
-
-export default App;
+    </Routes>
+  </div>
+);
